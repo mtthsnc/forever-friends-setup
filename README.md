@@ -6,8 +6,8 @@ En delt UI- og addonopsætning til WoW Forever med skrifttyper, profiler og valg
 
 Åbn [seneste release](https://github.com/mtthsnc/forever-friends-setup/releases/latest).
 
-- **Ny installation:** Hent både `Forever-Friends-Setup-Core-2026-11-05.zip` og `Forever-Friends-Setup-Audio-2026-11-05.zip`.
-- **Har du allerede pakken fra 4. november?** Hent kun `Forever-Friends-Keybinding-Update-2026-11-05.zip`, og følg dens `README_UPDATE.txt`.
+- **Ny installation:** Hent både `Forever-Friends-Setup-Core-2026-11-05.1.zip` og `Forever-Friends-Setup-Audio-2026-11-05.zip`.
+- **Har du allerede installeret pakken?** Hent kun `Forever-Friends-Bags-Update-2026-11-05.1.zip`, og følg dens `README_UPDATE.txt`. Den indeholder også de tidligere navne- og tastebindingsrettelser.
 - GitHubs automatiske **Source code**-downloads indeholder kun denne dokumentation. De er ikke addonpakken.
 
 De to fulde ZIP-filer er selvstændige arkiver. De skal ikke sammenføjes som binære fildele. Pak dem ud i samme midlertidige mappe, så indholdet bliver samlet.
@@ -38,6 +38,18 @@ Addonimporten virker uden disse cachefiler. Du skal ikke redigere `__SETUP_...`-
 Pak den lille opdaterings-ZIP ud, og kopiér indholdet af `COPY_INTO_FOREVER` til din `_forever_`-mappe. Er du allerede inde i spillet, kan den eksisterende importfil genindlæses med `/reload`. Skriv derefter `/friendbinds` uden for kamp for at anvende de delte tastebindinger. Den kommando overskriver de inkluderede bindinger, også hvis automatisk bindingimport er slået fra.
 
 `/friendbinds status` viser eventuelle bindinger, som et manglende addon eller andre indstillinger forhindrede i at blive anvendt.
+
+## Tasker og action mode
+
+Hold **Forever Combat Mode - Bags** aktiveret. Det er et separat kompatibilitetsaddon, så opdatering af CombatMode ikke erstatter det.
+
+- **Uden for kamp:** Når du åbner taskerne, bliver musemarkøren fri. Når alle tasker er lukket, kan action mode fortsætte.
+- **I kamp:** Tasker afbryder ikke action mode.
+- Har du selv slået action mode fra, respekteres det. Andre åbne vinduer beholder deres normale virkning.
+
+Eksisterende brugere kan kopiere den lille Bags Update og skrive `/reload` uden at lukke klienten. Det eksisterende opsætningsaddon indlæser samme kompatibilitetskode, indtil klienten har opdaget det nye separate addon ved næste normale start. Koden installeres kun én gang, selv om begge er indlæst.
+
+Det separate addons kildekode ligger i [`addons/ForeverCombatModeBags`](addons/ForeverCombatModeBags). En fremtidig inkompatibel ændring af CombatModes API kan stadig kræve en opdatering af kompatibilitetsaddonnet.
 
 ## Indhold og kontrol
 
