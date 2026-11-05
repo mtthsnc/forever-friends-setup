@@ -6,7 +6,7 @@ Komplet UI- og addonpakke til WoW Forever med skrifttyper, profiler og valgfri i
 
 Hent den komplette pakke fra [seneste release](https://github.com/mtthsnc/forever-friends-setup/releases/latest):
 
-- **Forever-Friends-Setup-Core-2026-11-05.2.zip**
+- **Forever-Friends-Setup-Core-2026-11-05.3.zip**
 - **Forever-Friends-Setup-Audio-2026-11-05.zip**
 
 Pak begge ZIP-filer ud i samme midlertidige mappe. De er selvstændige arkiver, der tilsammen udgør den fulde pakke. Audio er uændret fra tidligere udgaver; har du allerede den samme audiofil, kan den genbruges. Der udgives fremover hele pakker, ikke små fix-installationer.
@@ -42,13 +42,20 @@ Har du endnu ingen kontomappe, kan du åbne Forever til login-/karakterskærmen 
 
 `REPLACE_WITH_YOUR_REALM_FOLDER` og `REPLACE_WITH_YOUR_CHARACTER_FOLDER` indeholder spillets egne chat- og layout-cachefiler. Brug kun de præcise mappenavne, som din klient opretter. Gæt ikke et realmnavn eller et nummer. Addonimporten virker uden disse valgfrie cachefiler. `__SETUP_...`-teksten i Lua-filerne håndteres automatisk og skal ikke redigeres.
 
+## Nyt i v2026.11.05.3
+
+- Personal World Plate 0.9.0 med egen castbar, DialogueUI-skin og opdateret visning af buffs, debuffs, swingtimer og heal prediction.
+- Aktuelle, rensede indstillinger fra den senest gemte karakter i stedet for den oprindelige betaskabelon. Eksisterende brugere beholder stadig deres egen WTF ved opdatering.
+- Opdaterede tastebindinger fra den nuværende konto.
+- Layoutadapter 1.1.0 genkender den nye addon-ejede castbar og lader dens Update-funktion være i fred. Den gamle native castbar-tilknytning bruges kun til ældre Personal World Plate-versioner.
+
 ## Rettelser i denne udgave
 
 ### Glass og personlig castbar
 
 **Forever UI Layout Fixes** sørger for, at Glass' indtastningsfelt følger chatvinduet efter forsinkede layoutændringer på nye karakterer. Det respekterer Glass' Above/Below-indstilling, afstand og vinduets aktuelle bredde. Det bruger widgettens native HookScript, fordi Glass også indlejrer AceHook med en anden metode af samme navn.
 
-Personal World Plates castbar hæftes til den personlige ramme med ensartet skalering. Anker-, bredde- og skalaændringer repareres, når det er sikkert. Beskyttede rammer flyttes ikke under kamp, og Edit Mode får lov til at afslutte, før vedhæftningen gendannes. Rettelsen ligger i et separat addon; Glass og PersonalWorldPlate ændres ikke på disken.
+Personal World Plate 0.9.0 bruger nu sin egen castbar. Layoutadapteren ændrer ikke denne nye implementering. For ældre versioner hæftes den native castbar til den personlige ramme med ensartet skalering. Anker-, bredde- og skalaændringer repareres, når det er sikkert. Beskyttede rammer flyttes ikke under kamp, og Edit Mode får lov til at afslutte, før vedhæftningen gendannes. Rettelsen ligger i et separat addon; Glass og PersonalWorldPlate ændres ikke på disken.
 
 ### Tasker og action mode
 
@@ -56,7 +63,7 @@ Personal World Plates castbar hæftes til den personlige ramme med ensartet skal
 
 ### Tastebindinger
 
-Separate fornavne og efternavne håndteres. De 114 inkluderede bindinger kan importeres automatisk på første login. `/friendbinds status` viser fejl eller konflikter. `/friendbinds` anvender dem igen uden for kamp og kan dermed overskrive dine senere bindinger.
+Separate fornavne og efternavne håndteres. De 115 inkluderede bindinger kan importeres automatisk på første login. `/friendbinds status` viser fejl eller konflikter. `/friendbinds` anvender dem igen uden for kamp og kan dermed overskrive dine senere bindinger.
 
 ## Kontrol og gendannelse
 
