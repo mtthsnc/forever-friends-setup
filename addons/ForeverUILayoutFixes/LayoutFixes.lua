@@ -1,8 +1,8 @@
 -- BEGIN FOREVER UI LAYOUT FIXES
 -- Standalone adapter; also bootstrapped by the existing setup addon for /reload.
 do
-    if not (_G.ForeverUILayoutFixes and _G.ForeverUILayoutFixes.version == 1) then
-        local state = {version=1}
+    if not (_G.ForeverUILayoutFixes and _G.ForeverUILayoutFixes.version == 2) then
+        local state = {version=2}
         _G.ForeverUILayoutFixes = state
         local hookedBoxes = setmetatable({}, {__mode="k"})
         local hookedCasts = setmetatable({}, {__mode="k"})
@@ -121,6 +121,13 @@ do
             end
             repairGlass()
             local cast = _G.PersonalWorldPlateCastBar
+            -- PWP 0.8.2+ owns its castbar and deliberately suppresses the stock
+            -- bar. Its version marker distinguishes it from the legacy native
+            -- attachment this adapter repairs. Never replace its Update method.
+            if cast and cast.version then
+                castPlate, castWidth = nil, nil
+                return
+            end
             if cast and cast.Update ~= state.castUpdate then
                 -- The addon driver calls this method every 0.1 seconds. Unlike
                 -- its original blanket combat return, repair safe, unprotected
